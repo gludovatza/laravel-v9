@@ -1,4 +1,5 @@
 @extends('layout')
 @section('content')
-    <h1>Hello World</h1>
+    <h1>Kapcsolat</h1>
+    <p>Ide kerülhetnek a kapcsolattartási információk.</p>
 @endsection
