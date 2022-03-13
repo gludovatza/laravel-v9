@@ -9,6 +9,7 @@
 <meta name="author" content="mlp design">
 <meta name="robots" content="index, follow">
 <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+<link rel="stylesheet" href="{{ mix('css/mystyle.css') }}">
 </head>
 <body>
 <!-- Menu Items -->
