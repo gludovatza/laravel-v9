@@ -22,3 +22,18 @@ Route::get('/', function () {
 // });
 
 Route::view('/contact', 'contact');
+
+// Route::get('/flights', function () {
+//     // $flights = App\Models\Flight::get();                                 // SELECT * FROM flights;
+//     // $flights = App\Models\Flight::where('active', 1)->take(2)->get();    // SELECT * FROM flights WHERE active = 1 LIMIT 2;
+//     // $flights = App\Models\Flight::paginate(2);                           // lapozhatóság: 2 repülőgépjárat egy lapon
+//     // $flights = App\Models\Flight::latest('created_at')->get();           // SELECT * FROM flights ORDER BY created_at DESC;
+//     // return $flights;
+
+//     return view('flights', [
+//         'flights' => App\Models\Flight::latest()->get()
+//     ]);
+// });
+
+Route::get('/flights/{flight}',[App\Http\Controllers\FlightsController::class, 'show']);
+Route::get('/flights',[App\Http\Controllers\FlightsController::class, 'index']);

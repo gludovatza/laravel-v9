@@ -19,14 +19,10 @@
  <label for="show-menu" class="close"><span class="fa fa-times"></label>
  <ul id="menu">
 
-  <li><a class="{{ Request::path() === '/' ? 'active' : '' }}" href="/">Home</a></li>
-  <li><a class="{{ Request::path() === 'contact' ? 'active' : '' }}" href="/contact">Contact</a></li>
+  <li><a class="{{ Request::path() === '/' ? 'active' : '' }}" href="/">Kezdőoldal</a></li>
+  <li><a class="{{ Request::path() === 'contact' ? 'active' : '' }}" href="/contact">Kapcsolat</a></li>
+  <li><a class="{{ Request::path() === 'flights' ? 'active' : '' }}" href="/flights">Repülőjáratok</a></li>
 
-  <li><a href="#">Old School</a></li>
-  <li><a href="#">Pastel</a></li>
-  <li><a href="#">Archive</a></li>
-  <li><a href="#">Empty</a></li>
-  <li><a href="#">Also Empty</a></li>
  </ul>
 </nav>
 <!-- // -->
