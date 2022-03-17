@@ -7,5 +7,8 @@
     @if ($flight->price)
         <p>Ára: {{ $flight->price }}</p>
     @endif
+    @if ($flight->captain)
+        <p>Kapitány: {{ $flight->captain->name }}</p>
+    @endif
 @endsection
 

@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Flight extends Model
+class Captain extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['number'];
-
-    public function captain()
+    public function flight()
     {
-        return $this->hasOne(Captain::class);
+        return $this->hasOne(Flight::class);
     }
 }

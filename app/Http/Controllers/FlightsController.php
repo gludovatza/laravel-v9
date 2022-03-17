@@ -9,7 +9,7 @@ class FlightsController extends Controller
 {
     public function show($id)
     {
-        $flight = Flight::findOrFail($id);
+        $flight = Flight::with('Captain')->findOrFail($id);
         // return view('flights.show', ['flight' => $flight]);
         return view('flights.show', compact('flight'));
     }
@@ -17,7 +17,7 @@ class FlightsController extends Controller
     public function index()
     {
         return view('flights.index', [
-            'flights' => Flight::latest()->get()
+            'flights' => Flight::latest()->with('Captain')->get()
         ]);
     }
 }
