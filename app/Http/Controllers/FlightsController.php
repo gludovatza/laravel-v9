@@ -10,8 +10,11 @@ class FlightsController extends Controller
     public function show($id)
     {
         $flight = Flight::with('Captain')->findOrFail($id);
-        // return view('flights.show', ['flight' => $flight]);
-        return view('flights.show', compact('flight'));
+        return view('flights.show', [
+            'flight' => $flight,
+            'passengers' => $flight->passengers->pluck('name')
+        ]);
+        // return view('flights.show', compact('flight'));
     }
 
     public function index()

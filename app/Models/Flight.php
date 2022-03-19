@@ -15,4 +15,8 @@ class Flight extends Model
     {
         return $this->hasOne(Captain::class);
     }
+
+    public function passengers() {
+        return $this->hasMany(Passenger::class);
+    }
 }
