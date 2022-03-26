@@ -5,19 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Airline extends Model
+class City extends Model
 {
     use HasFactory;
 
     protected $fillable = ['name'];
 
-    public function flights()
+    public function airlines()
     {
-        return $this->hasMany(Flight::class);
-    }
-
-    public function cities()
-    {
-        return $this->belongsToMany(City::class);
+        return $this->belongsToMany(Airline::class);
     }
 }

@@ -37,3 +37,9 @@ Route::view('/contact', 'contact');
 
 Route::get('/flights/{flight}',[App\Http\Controllers\FlightsController::class, 'show']);
 Route::get('/flights',[App\Http\Controllers\FlightsController::class, 'index']);
+
+Route::get('/airlines/{airline}',[App\Http\Controllers\AirlinesController::class, 'show']);
+Route::get('/airlines',[App\Http\Controllers\AirlinesController::class, 'index']);
+
+Route::get('/cities/{city}',[App\Http\Controllers\CitiesController::class, 'show']);
+Route::get('/cities',[App\Http\Controllers\CitiesController::class, 'index']);

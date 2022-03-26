@@ -22,6 +22,8 @@
   <li><a class="{{ Request::path() === '/' ? 'active' : '' }}" href="/">Kezdőoldal</a></li>
   <li><a class="{{ Request::path() === 'contact' ? 'active' : '' }}" href="/contact">Kapcsolat</a></li>
   <li><a class="{{ Request::path() === 'flights' ? 'active' : '' }}" href="/flights">Repülőjáratok</a></li>
+  <li><a class="{{ Request::path() === 'airlines' ? 'active' : '' }}" href="/airlines">Légitársaságok</a></li>
+  <li><a class="{{ Request::path() === 'cities' ? 'active' : '' }}" href="/cities">Városok</a></li>
 
  </ul>
 </nav>
