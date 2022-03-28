@@ -1,5 +1,10 @@
 <?php
 
+use App\Models\City;
+use App\Models\Flight;
+use App\Models\Airline;
+use App\Models\Passenger;
+use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -43,3 +48,16 @@ Route::get('/airlines',[App\Http\Controllers\AirlinesController::class, 'index']
 
 Route::get('/cities/{city}',[App\Http\Controllers\CitiesController::class, 'show']);
 Route::get('/cities',[App\Http\Controllers\CitiesController::class, 'index']);
+
+// Route::get('dbseeder', function () {
+//     // DB::table('flights')->insert([
+//     //     'name' => Str::random(10),
+//     //     'number' => Str::random(10),
+//     //     'price' => rand(100,500),
+//     //     'captain_id' => 1
+//     // ]);
+//     Airline::factory()->count(10)->create();
+//     City::factory()->count(5)->create();
+//     Flight::factory()->count(20)->create();
+//     Passenger::factory()->count(100)->create();
+// });
