@@ -6,6 +6,7 @@ use App\Models\Airline;
 use App\Models\Passenger;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\LuggagesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -61,3 +62,16 @@ Route::get('/cities',[App\Http\Controllers\CitiesController::class, 'index']);
 //     Flight::factory()->count(20)->create();
 //     Passenger::factory()->count(100)->create();
 // });
+
+// Route::get('/luggages', [LuggagesController::class, 'index']);
+// Route::get('/luggages/{luggage}', [LuggagesController::class, 'show']);
+
+// Route::get('/luggages/create', [LuggagesController::class, 'create']);
+// Route::post('/luggages', [LuggagesController::class, 'store']);
+
+// Route::get('/luggages/{luggage}/edit', [LuggagesController::class, 'edit']);
+// Route::put('/luggages/{luggage}', [LuggagesController::class, 'update']);
+
+// Route::delete( '/luggages/{luggage}', [LuggagesController::class, 'destroy']);
+
+Route::resource('luggages', LuggagesController::class);
