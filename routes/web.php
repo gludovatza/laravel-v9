@@ -6,7 +6,7 @@ use App\Models\Airline;
 use App\Models\Passenger;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LuggagesController;
+use App\Http\Controllers\LuggageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -63,15 +63,15 @@ Route::get('/cities',[App\Http\Controllers\CitiesController::class, 'index']);
 //     Passenger::factory()->count(100)->create();
 // });
 
-// Route::get('/luggages', [LuggagesController::class, 'index']);
-// Route::get('/luggages/{luggage}', [LuggagesController::class, 'show']);
+// Route::get('/luggage', [LuggageController::class, 'index']);
+// Route::get('/luggage/{luggage}', [LuggageController::class, 'show']);
 
-// Route::get('/luggages/create', [LuggagesController::class, 'create']);
-// Route::post('/luggages', [LuggagesController::class, 'store']);
+// Route::get('/luggage/create', [LuggageController::class, 'create']);
+// Route::post('/luggage', [LuggageController::class, 'store']);
 
-// Route::get('/luggages/{luggage}/edit', [LuggagesController::class, 'edit']);
-// Route::put('/luggages/{luggage}', [LuggagesController::class, 'update']);
+// Route::get('/luggage/{luggage}/edit', [LuggageController::class, 'edit']);
+// Route::put('/luggage/{luggage}', [LuggageController::class, 'update']);
 
-// Route::delete( '/luggages/{luggage}', [LuggagesController::class, 'destroy']);
+// Route::delete( '/luggage/{luggage}', [LuggageController::class, 'destroy']);
 
-Route::resource('luggages', LuggagesController::class);
+Route::resource('luggage', LuggageController::class);

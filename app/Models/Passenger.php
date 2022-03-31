@@ -14,7 +14,7 @@ class Passenger extends Model
         return $this->belongsTo(Flight::class);
     }
 
-    public function luggages()
+    public function luggage()
     {
         return $this->hasMany(Luggage::class);
     }

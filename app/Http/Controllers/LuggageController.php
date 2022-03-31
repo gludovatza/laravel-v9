@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Luggage;
 use Illuminate\Http\Request;
 
-class LuggagesController extends Controller
+class LuggageController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,8 +14,8 @@ class LuggagesController extends Controller
      */
     public function index()
     {
-        return view('luggages.index', [
-            'luggages' => Luggage::get(),
+        return view('luggage.index', [
+            'luggage' => Luggage::get(),
         ]);
     }
 
@@ -49,7 +49,7 @@ class LuggagesController extends Controller
     public function show(Luggage $luggage)
     {
         // dd($luggage);
-        return view('luggages.show', [
+        return view('luggage.show', [
             'number' => $luggage->number,
             'passenger' => $luggage->passenger->name,
         ]);

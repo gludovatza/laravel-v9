@@ -24,7 +24,7 @@
   <li><a class="{{ Request::path() === 'flights' ? 'active' : '' }}" href="/flights">Repülőjáratok</a></li>
   <li><a class="{{ Request::path() === 'airlines' ? 'active' : '' }}" href="/airlines">Légitársaságok</a></li>
   <li><a class="{{ Request::path() === 'cities' ? 'active' : '' }}" href="/cities">Városok</a></li>
-  <li><a class="{{ Request::path() === 'luggages' ? 'active' : '' }}" href="/luggages">Poggyászok</a></li>
+  <li><a class="{{ Request::path() === 'luggage' ? 'active' : '' }}" href="/luggage">Poggyászok</a></li>
 
  </ul>
 </nav>

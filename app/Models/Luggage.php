@@ -9,8 +9,6 @@ class Luggage extends Model
 {
     use HasFactory;
 
-    protected $table = 'luggages';
-
     public function passenger()
     {
         return $this->belongsTo(Passenger::class);
