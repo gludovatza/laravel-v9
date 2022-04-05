@@ -22,4 +22,20 @@ class AirlinesController extends Controller
             'airlines' => Airline::orderBy('name')->get()
         ]);
     }
+
+    public function create()
+    {
+        return view('airlines.create');
+    }
+    public function store(Request $request)
+    {
+        // $airline = new Airline();
+        // $airline->name = request('legitarsasagneve');
+        // $airline->save();
+
+        Airline::create([
+            'name' => request('legitarsasagneve')
+        ]);
+        return redirect('airlines');
+    }
 }

@@ -2,6 +2,7 @@
 @section('content')
     <h1>Légitársaságok</h1>
     <p>Ide kerülnek a légitársaság információk.</p>
+    <p><a href="/airlines/create">Új légitársaság létrehozása</a></p>
     <ul>
         @foreach($airlines as $airline)
             <li>

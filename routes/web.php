@@ -7,6 +7,7 @@ use App\Models\Passenger;
 use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LuggageController;
+use App\Http\Controllers\AirlinesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -44,6 +45,8 @@ Route::view('/contact', 'contact');
 Route::get('/flights/{flight}',[App\Http\Controllers\FlightsController::class, 'show']);
 Route::get('/flights',[App\Http\Controllers\FlightsController::class, 'index']);
 
+Route::get('/airlines/create', [AirlinesController::class, 'create']);
+Route::post('/airlines', [AirlinesController::class, 'store']);
 Route::get('/airlines/{airline}',[App\Http\Controllers\AirlinesController::class, 'show']);
 Route::get('/airlines',[App\Http\Controllers\AirlinesController::class, 'index']);
 
