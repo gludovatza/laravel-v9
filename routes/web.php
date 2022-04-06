@@ -8,6 +8,7 @@ use Illuminate\Support\Str;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LuggageController;
 use App\Http\Controllers\AirlinesController;
+use App\Http\Controllers\PassengersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -78,3 +79,5 @@ Route::get('/cities',[App\Http\Controllers\CitiesController::class, 'index']);
 // Route::delete( '/luggage/{luggage}', [LuggageController::class, 'destroy']);
 
 Route::resource('luggage', LuggageController::class);
+
+Route::resource('passengers', PassengersController::class);

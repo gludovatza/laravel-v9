@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\City;
 use App\Models\Airline;
 use Illuminate\Http\Request;
 
@@ -25,7 +26,9 @@ class AirlinesController extends Controller
 
     public function create()
     {
-        return view('airlines.create');
+        return view('airlines.create', [
+            'cities' => City::orderBy('name')->get()
+        ]);
     }
     public function store(Request $request)
     {
@@ -35,7 +38,7 @@ class AirlinesController extends Controller
 
         Airline::create([
             'name' => request('legitarsasagneve')
-        ]);
+        ])->cities()->attach(request('cities'));
         return redirect('airlines');
     }
 }
