@@ -11,5 +11,10 @@
             @endforelse
         </ul>
     @endif
+    <form action="/airlines/{{ $airline->id }}" method="POST">
+        @method('DELETE')
+        @csrf
+        <input class="btn btn-danger btn-block" type="submit" value="Törlés">
+    </form>
 @endsection
 

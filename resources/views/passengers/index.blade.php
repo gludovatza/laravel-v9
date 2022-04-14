@@ -7,6 +7,7 @@
         @foreach($passengers as $passenger)
             <li>
                 <h3><a href="/passengers/{{ $passenger->id }}">{{ $passenger->name }}</a></h3>
+                <a href="/passengers/{{ $passenger->id }}/edit">Szerkesztés</a>
             </li>
         @endforeach
     </ul>

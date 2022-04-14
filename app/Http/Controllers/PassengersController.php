@@ -69,9 +69,12 @@ class PassengersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Passenger $passenger)
     {
-        //
+        return view('passengers.edit', [
+            'passenger' => $passenger,
+            'flights' => Flight::orderBy('name')->get()
+        ]);
     }
 
     /**
@@ -81,9 +84,11 @@ class PassengersController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Passenger $passenger)
     {
-        //
+        $passenger->update(request()->all());
+
+        return redirect('passengers');
     }
 
     /**

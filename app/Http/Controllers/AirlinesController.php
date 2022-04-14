@@ -41,4 +41,29 @@ class AirlinesController extends Controller
         ])->cities()->attach(request('cities'));
         return redirect('airlines');
     }
+
+    public function edit(Airline $airline)
+    {
+        return view('airlines.edit', [
+            'airline' => $airline,
+            'cities' => City::orderBy('name')->get()
+        ]);
+    }
+
+    public function update(Request $request, Airline $airline)
+    {
+        $airline->update([
+            'name' => request('legitarsasagneve'),
+        ]);
+
+        $airline->cities()->sync(request('cities'));
+
+        return redirect('airlines');
+    }
+
+    public function destroy(Airline $airline)
+    {
+        $airline->delete();
+        return redirect('airlines');
+    }
 }

@@ -50,6 +50,9 @@ Route::get('/airlines/create', [AirlinesController::class, 'create']);
 Route::post('/airlines', [AirlinesController::class, 'store']);
 Route::get('/airlines/{airline}',[App\Http\Controllers\AirlinesController::class, 'show']);
 Route::get('/airlines',[App\Http\Controllers\AirlinesController::class, 'index']);
+Route::get('/airlines/{airline}/edit', [AirlinesController::class, 'edit']);
+Route::put('/airlines/{airline}', [AirlinesController::class, 'update']);
+Route::delete( '/airlines/{airline}', [AirlinesController::class, 'destroy']);
 
 Route::get('/cities/{city}',[App\Http\Controllers\CitiesController::class, 'show']);
 Route::get('/cities',[App\Http\Controllers\CitiesController::class, 'index']);
