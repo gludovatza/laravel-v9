@@ -8,7 +8,7 @@
 
     </form> --}}
 
-    <form class="border border-light p-5" action="/airlines" method="POST">
+    <form class="border border-light p-5" action="{{ route('airlines.store') }}" method="POST">
         @csrf
         <label for="legitarsasagneve">Légitársaság neve:</label>
         <input type="text" name="legitarsasagneve" id="legitarsasagneve" class="form-control mt-2 mb-4" placeholder="Légitársaság neve" required>

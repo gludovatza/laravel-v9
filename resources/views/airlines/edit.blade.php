@@ -1,7 +1,7 @@
 @extends('layout')
 @section('content')
     <h1>Légitársaság frissítése</h1>
-    <form class="border border-light p-5" action="/airlines/{{ $airline->id }}" method="POST">
+    <form class="border border-light p-5" action="{{ route('airlines.update', $airline->id) }}" method="POST">
         @method('PUT')
         @csrf
         <label for="legitarsasagneve">Légitársaság neve:</label>

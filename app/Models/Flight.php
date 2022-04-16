@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -23,5 +24,11 @@ class Flight extends Model
     public function airline()
     {
         return $this->belongsTo(Airline::class);
+    }
+
+    public static function getFilteredFlights($active, $from, $to = null)
+    {
+        if($to == null) $to = Carbon::now()->format('Y-m-d');
+        return Flight::where('active', $active)->whereBetween('created_at', [$from, $to])->first();
     }
 }

@@ -8,9 +8,9 @@ use Illuminate\Http\Request;
 
 class AirlinesController extends Controller
 {
-    public function show($id)
+    public function show(Airline $airline)
     {
-        $airline = Airline::findOrFail($id);
+        //dd($airline);
         return view('airlines.show', [
             'airline' => $airline,
             'cities' => $airline->cities->pluck('name')
@@ -39,7 +39,7 @@ class AirlinesController extends Controller
         Airline::create([
             'name' => request('legitarsasagneve')
         ])->cities()->attach(request('cities'));
-        return redirect('airlines');
+        return redirect(route('airlines.index'));
     }
 
     public function edit(Airline $airline)
@@ -58,12 +58,12 @@ class AirlinesController extends Controller
 
         $airline->cities()->sync(request('cities'));
 
-        return redirect('airlines');
+        return redirect(route('airlines.index'));
     }
 
     public function destroy(Airline $airline)
     {
         $airline->delete();
-        return redirect('airlines');
+        return redirect(route('airlines.index'));
     }
 }

@@ -23,4 +23,9 @@ class FlightsController extends Controller
             'flights' => Flight::latest()->with('Captain')->get()
         ]);
     }
+
+    public function getActiveFlightsFromTo($active, $from, $to = null)
+    {
+        return Flight::getFilteredFlights($active, $from, $to);
+    }
 }
