@@ -14,7 +14,7 @@
             @endforeach
         </select>
 
-        <input class="btn btn-info btn-block" type="submit" value="Mentés">
+        <input class="btn btn-info btn-block" type="submit" value="Mentés" dusk="save-button">
     </form>
 @endsection
 
