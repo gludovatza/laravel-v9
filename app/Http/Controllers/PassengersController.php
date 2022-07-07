@@ -42,7 +42,10 @@ class PassengersController extends Controller
     {
         Passenger::create([
             'name' => request('utasneve'),
-            'flight_id' => request('repulojarata')
+            'flight_id' => request('repulojarata'),
+            'age' => request('age'),
+            'email' => request('email'),
+            'phone' => request('phone'),
         ]);
         return redirect('passengers');
     }
