@@ -23,6 +23,7 @@
         href="{{ asset('css/app.css') }}">
     <link rel="stylesheet"
         href="{{ mix('css/mystyle.css') }}">
+    @stack('head-scripts')
 </head>
 
 <body>

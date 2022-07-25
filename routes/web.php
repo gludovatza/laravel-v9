@@ -44,8 +44,9 @@ Route::view('/contact', 'contact');
 //     ]);
 // });
 
-Route::get('/flights/{flight}',[App\Http\Controllers\FlightsController::class, 'show']);
-Route::get('/flights',[App\Http\Controllers\FlightsController::class, 'index']);
+// Route::get('/flights/{flight}',[App\Http\Controllers\FlightsController::class, 'show']);
+// Route::get('/flights',[App\Http\Controllers\FlightsController::class, 'index']);
+Route::resource('flights', App\Http\Controllers\FlightsController::class);
 
 Route::get('/airlines/create', [AirlinesController::class, 'create'])->name('airlines.create');
 Route::post('/airlines', [AirlinesController::class, 'store'])->name('airlines.store');
