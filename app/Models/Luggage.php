@@ -9,6 +9,8 @@ class Luggage extends Model
 {
     use HasFactory;
 
+    protected $fillable = ['number', 'passenger_id'];
+
     public function passenger()
     {
         return $this->belongsTo(Passenger::class);

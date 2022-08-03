@@ -2,6 +2,7 @@
 @section('content')
     <h1>Poggyászok</h1>
     <p>Ide kerülnek a poggyász információk.</p>
+    <p><a href="{{ route('luggage.create') }}">Csomag létrehozása</a></p>
     <ul>
         @foreach($luggage as $l)
             <li>

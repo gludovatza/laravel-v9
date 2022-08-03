@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Luggage;
+use App\Models\Passenger;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class LuggageController extends Controller
 {
@@ -26,7 +28,9 @@ class LuggageController extends Controller
      */
     public function create()
     {
-        //
+        return view('luggage.create', [
+            'passengers' => Passenger::orderBy('name')->get()
+        ]);
     }
 
     /**
@@ -37,7 +41,37 @@ class LuggageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // $request->validate([
+        //     'number' => 'required|max:255',
+        //     'passenger_id' => 'required|integer|exists:passengers,id',
+        // ], [
+        //     'number.required' => 'A Csomag szám mező kitöltése kötelező.',
+        //     'number.max' => 'A csomag száma maximum 255 karakter hosszú lehet.',
+        //     'passenger_id.required' => 'Az Utas megadása kötelező.',
+        //     'passenger_id.integer' => 'Az Utas azonosítójának számnak kell lennie.',
+        //     'passenger_id.exists' => 'Csak létező utast adhat meg.',
+        // ]);
+
+        $validator = Validator::make(request()->all(), [
+            'number' => 'required|max:255',
+            'passenger_id' => 'required|integer|exists:passengers,id',
+        ], [
+            'number.required' => 'A Csomag szám mező kitöltése kötelező.',
+            'number.max' => 'A csomag száma maximum 255 karakter hosszú lehet.',
+            'passenger_id.required' => 'Az Utas megadása kötelező.',
+            'passenger_id.integer' => 'Az Utas azonosítójának számnak kell lennie.',
+            'passenger_id.exists' => 'Csak létező utast adhat meg.',
+        ]);
+
+        if($validator->fails()) {
+            return redirect(route('luggage.create'))
+                ->withErrors($validator)
+                ->withInput();
+        }
+
+        // Ha idáig eljutunk a feldolgozásban, akkor az érkező adatok már érvényesek
+        Luggage::create(request()->all());
+        return redirect(route('luggage.index'));
     }
 
     /**
@@ -63,7 +97,9 @@ class LuggageController extends Controller
      */
     public function edit(Luggage $luggage)
     {
-        //
+        return view('luggage.edit', [
+            'luggage' => $luggage
+        ]);
     }
 
     /**
