@@ -5,13 +5,22 @@
         action="/passengers"
         method="POST">
         @csrf
-
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <label for="utasneve">Utas neve:</label>
         <input type="text"
             name="utasneve"
             id="utasneve"
             class="form-control mt-2 mb-4"
             placeholder="Utas neve"
+            value="{{ old('utasneve') }}"
             minlength="10"
             maxlength="50"
             required>
@@ -21,15 +30,20 @@
             name="age"
             id="age"
             class="form-control mt-2 mb-4"
+            value="{{ old('age') }}"
             min="6"
             max="99"
             required>
+
+        <label for="birthdate">Születési dátum:</label>
+        <input type="date" name="birthdate" id="birthdate" value="{{ old('birthdate', date('Y-m-d')) }}" class="form-control mt-2 mb-4" required>
 
         <label for="email">E-mail cím:</label>
         <input type="email"
             name="email"
             id="email"
             class="form-control mt-2 mb-4"
+            value="{{ old('email') }}"
             maxlength="100"
             required>
 
@@ -38,6 +52,7 @@
             name="phone"
             id="phone"
             class="form-control mt-2 mb-4"
+            value="{{ old('phone') }}"
             maxlength="11"
             placeholder="20/123-4567"
             pattern="[0-9]{2}[/][0-9]{3}[-][0-9]{4}"
@@ -49,7 +64,7 @@
             id="repulojarata"
             required>
             @foreach ($flights as $flight)
-                <option value="{{ $flight->id }}">{{ $flight->number }}</option>
+                <option value="{{ $flight->id }}" @selected(old('repulojarata') == $flight->id)>{{ $flight->number }}</option>
             @endforeach
         </select>
 

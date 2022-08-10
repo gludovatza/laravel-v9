@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\Flight;
 use App\Models\Passenger;
+use App\Rules\LegalAgeRule;
 use Illuminate\Http\Request;
+use App\Http\Requests\PassengerStoreUpdateRequest;
 
 class PassengersController extends Controller
 {
@@ -38,14 +40,25 @@ class PassengersController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(PassengerStoreUpdateRequest $request)
     {
+        $validated = $request->validated();
+        // $request->validate([
+        //     'utasneve' => 'required|min:10|max:50',
+        //     'age' => 'required|numeric|min:6|max:99',
+        //     'email' => 'required|email|max:100',
+        //     'phone' => 'required|max:11',
+        //     'repulojarata' => 'required|integer|exists:flights,id',
+        //     'birthdate' => ['required', new LegalAgeRule(18)]
+        // ]);
+
         Passenger::create([
             'name' => request('utasneve'),
             'flight_id' => request('repulojarata'),
             'age' => request('age'),
             'email' => request('email'),
             'phone' => request('phone'),
+            'birthdate' => request('birthdate'),
         ]);
         return redirect('passengers');
     }
