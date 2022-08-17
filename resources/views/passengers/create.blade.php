@@ -3,6 +3,7 @@
     <h1>Új utas létrehozása</h1>
     <form class="border border-light p-5"
         action="/passengers"
+        id="utasLetrehozo"
         method="POST">
         @csrf
         @if ($errors->any())
@@ -21,7 +22,7 @@
             class="form-control mt-2 mb-4"
             placeholder="Utas neve"
             value="{{ old('utasneve') }}"
-            minlength="10"
+            minlength="5"
             maxlength="50"
             required>
 
@@ -82,7 +83,7 @@
 
         utasneve.addEventListener("input", function(event) {
             if (utasneve.validity.tooLong || utasneve.validity.tooShort) {
-                utasneve.setCustomValidity("A névnek legalább 10 és legfeljebb 50 karakteresnek kell lennie!");
+                utasneve.setCustomValidity("A névnek legalább 5 és legfeljebb 50 karakteresnek kell lennie!");
                 utasneve.reportValidity();
             } else {
                 utasneve.setCustomValidity("");
